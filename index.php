@@ -20,7 +20,7 @@ body {
 }
 #copyright {
 	position:fixed;
-	left: 40%;
+	left: 35%;
 	bottom: 1%;
 	width: 50%;
 }
@@ -95,7 +95,7 @@ body {
 		});// ready
 </script>
 <div id="footer">
-	<div id="copyright"><p>Copyright &copy; 2013 <a href="http://www.ixxoo.me" target="_blank">likebeta</a>, All Rights Reserved,Power by <a href="https://github.com/likebeta" target="_blank">Github</a></div>
+	<div id="copyright"><p>Copyright &copy; <a href="https://github.com/messycode" target="_blank">github</a>, All Rights Reserved,Host by <a href="https://www.openshift.com" target="_blank">openshift</a>,Design by <a href="http://www.ixxoo.me" target="_blank">likebeta</a></div>
 	<div style="clear:both"></p></div>
 </div>
 </body>
