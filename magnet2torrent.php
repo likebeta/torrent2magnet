@@ -1,58 +1,66 @@
 <?php
-// ¹þÏ£·½·¨£ºBTIH,SHA1,MD5µÈ  ¼ÓÃÜºóµÄÎ»Êý²»Í¬
-// urn: Uniform Resource Name, Í³Ò»×ÊÔ´Ãû³Æ
-// url£ºUniform Resource Locator£¬ Í³Ò»×ÊÔ´¶¨Î»
-//$toTorrent = 'http://bt.box.n0808.com/05/A5/05153F611B337A378F73F0D32D2C16D362D06BA5.torrent';
-//$newString = 'magnet:?xt=urn:sha1:YNCKHTQCWBTRNJIV4WNAE52SJUQCZO5C&dn=TheCroods.avi';
-
-$newString = $_GET['magnet'];
-$magnetHead = substr($newString, 0 ,8);
+// å“ˆå¸Œæ–¹æ³•ï¼šBTIH,SHA1,MD5ç­‰  åŠ å¯†åŽçš„ä½æ•°ä¸åŒ
+// urn: Uniform Resource Name, ç»Ÿä¸€èµ„æºåç§°
+// urlï¼šUniform Resource Locatorï¼Œ ç»Ÿä¸€èµ„æºå®šä½
+// $torrent_url = 'http://bt.box.n0808.com/A1/76/A12AC8A4F0F6CCB0FB50916F43A69DC5F83EED76.torrent';
+// $magnet_url = 'magnet:?xt=urn:btih:A12AC8A4F0F6CCB0FB50916F43A69DC5F83EED76';
+// begin
+isset($_GET['magnet']) or die(convertFalse());
+$magnet_url = urldecode($_GET['magnet']);
+$magnetHead = substr($magnet_url, 0 ,8);
 if($magnetHead !== 'magnet:?') {
 	convertFalse();	// convert failed
 	return;
-	//...
 }
-$posOfxt = strpos($newString, 'xt');
-if ($posOfxt === false) {
+$pos_of_xt = strpos($magnet_url, 'xt');
+if ($pos_of_xt === false) {
 	convertFalse();	// convert failed
 	return;
-	//...
 }
-$posOfand = strpos($newString, '&', $posOfxt);
-if ($posOfand === false) // not find '&' after 'xt'
-{
-	$posOfmaohao = strrpos($newString, ':', $posOfxt);
-	if ($posOfmaohao === false){
+$pos_of_and = strpos($magnet_url, '&', $pos_of_xt);
+if ($pos_of_and === false) {// not find '&' after 'xt'
+	$pos_of_maohao = strrpos($magnet_url, ':', $pos_of_xt);
+	if ($pos_of_maohao === false){
 		convertFalse();
 		return;
 	}
-	$hashEncode = substr($newString, $posOfmaohao+1); 
+	$hashEncode = substr($magnet_url, $pos_of_maohao+1); 
 	$url = toTorrent($hashEncode);
+	if (strlen($hashEncode) != 40)
+	{
+		convertFalse();
+		return;
+	}
 	convertOk($url);
 	return;
-	// ...
-}else {
-	$offset = strlen($newString) - ($posOfand+1);
+}
+else{
+	$offset = strlen($magnet_url) - ($pos_of_and+1);
 	$offset = 0 - $offset;
-	$posOfmaohao = strrpos($newString, ':', $offset);
-	if ($posOfmaohao === false){
+	$pos_of_maohao = strrpos($magnet_url, ':', $offset);
+	if ($pos_of_maohao === false){
 		convertFalse();
 		return;
 	}
-	$hashLen = $posOfand - $posOfmaohao - 1;
-	$hashEncode = substr($newString, $posOfmaohao+1, $hashLen);
+	$hashLen = $pos_of_and - $pos_of_maohao - 1;
+	$hashEncode = substr($magnet_url, $pos_of_maohao+1, $hashLen);
+	if (strlen($hashEncode) != 40)
+	{
+		convertFalse();
+		return;
+	}
 	$url = toTorrent($hashEncode);
 	convertOk($url);
 	return;
-	// ...
 }
+// end
 
 function toTorrent(&$hashEncode)
 {
+	$hashEncode = strtoupper($hashEncode);
 	$hashHead = substr($hashEncode, 0, 2);
 	$hashTail = substr($hashEncode, -2);
-	$forTorrent = 'http://bt.box.n0808.com/'.$hashHead.'/'.$hashTail.'/'.$hashEncode.'.torrent';
-//	echo "$forTorrent<hr/>"; 
+	$forTorrent = 'http://bt.box.n0808.com/'.$hashHead.'/'.$hashTail.'/'.$hashEncode.'.torrent'; 
 	return $forTorrent;
 }
 
@@ -63,11 +71,8 @@ function convertOk(&$url){
 }
 
 function convertFalse(){
-	$arr = array('result'=>'0', 'url'=>null);
+	$arr = array('result'=>0, 'url'=>null);
 	$json_return = json_encode($arr);
 	echo $json_return;
 }
-
-?>   
-<strong>Now is good.</strong>
-
+?>
