@@ -2,11 +2,10 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="author" content="likebeta" />
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
+	<title>BT种子转磁性链接 | 磁性链接转BT种子</title>
+	<meta name="description" content="Torrent to Magnet online converter">
+	<meta name="author" content="likebeta">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>修改money</title>
 	<!--[if lt IE 9]>
 	<script src="http://lib.ixxoo.me/html5/html5.js" ></script>
 	<![endif]-->
