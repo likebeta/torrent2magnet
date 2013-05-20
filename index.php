@@ -1,102 +1,100 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>BT种子转磁性链接 | 磁性链接转BT种子</title>
-<meta name="description" content="Torrent to Magnet online converter">
-<meta name="author" content="likebeta">
-<script type="text/javascript" src="uploadify/jquery-1.7.2.min.js"></script>
-<script src="uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
-<link rel="stylesheet" type="text/css" href="uploadify/uploadify.css" />
-<style type="text/css">
-body {
-	font: 13px Arial, Helvetica, Sans-serif;
-	padding: 20px 50px;
-}
-#torrent2magnet,#magnet2torrent
-{
-	width: 50%;
-	float: left;
-}
-#copyright {
-	position:fixed;
-	left: 35%;
-	bottom: 1%;
-	width: 50%;
-}
-</style>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>BT种子转磁性链接 | 磁性链接转BT种子</title>
+	<meta name="description" content="Torrent to Magnet online converter">
+	<meta name="author" content="likebeta">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!--[if lt IE 9]>
+	<script src="http://lib.ixxoo.me/html5/html5.js" ></script>
+	<![endif]-->
+	<script src="http://lib.ixxoo.me/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://lib.ixxoo.me/bootstrap/2.3.1/js/bootstrap.min.js"></script>
+	<script src="http://lib.ixxoo.me/html5/html5shiv.js"></script>
+	<link href="http://lib.ixxoo.me/bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+	<link href="http://lib.ixxoo.me/bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen" />
+	<link href="base.css" rel="stylesheet" media="screen" />
+	<script src="uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
+	<link href="uploadify/uploadify.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
-	<div id="torrent2magnet">
-		<h1>torrent to magnet</h1>
-		<form>
-			<div id="queue"></div>
-			<input id="file_upload" name="file_upload" type="file" multiple="false" />
-		</form>
-		<div id="result_left"></div>
-	</div>
-	<div id="magnet2torrent">
-		<h1>magnet to torrent</h1>
-		<form method="post" action="magnet2torrent.php">
-			<input id="magnet" name="magnet" type="text" />
-			<input id="submit" name="submit" type="button" value="submit" />
-		</form>
-		<div id="result_right"></div>
-	</div>
-	
-	<script type="text/javascript">
-		<?php $timestamp = time();?>
-		$(function() {
-			$('#file_upload').uploadify({
-				'formData'  : {
-				'timestamp' : '<?php echo $timestamp;?>',
-				'token'     : '<?php echo md5('unique_salt' . $timestamp);?>'
-				},
-				'multi'    : false,
-				'swf'      : 'uploadify/uploadify.swf',
-				'uploader' : 'torrent2magnet.php',
-				'onUploadSuccess' : function(file, data, response) {
-					var result = document.getElementById('result_left');
-					if (response)
-					{
-						var obj = eval ("(" + data + ")");
-						if (obj.result)
-						{
-							result.innerHTML = '<a href="' + obj.url + '">' + obj.url + '</br>';
-						}
-						else
-						{
-							result.innerHTML = 'The file ' + file.name + ' is vailed! ';
-						}
-					}
-					else
-					{
-						result.innerHTML = 'The file ' + file.name + ' is vailed! ';
-					}
-				}
-			});
-		});
+<?php include('header.php');?>
 
-		$(document).ready(function(){
-			$("#submit").click(function(){
-				var magneturl = $("#magnet").attr("value");;
-				$.get("magnet2torrent.php", { magnet: encodeURIComponent(magneturl) },function(data){
-					var result = document.getElementById('result_right');
-					var obj = eval ("(" + data + ")");
-					if (obj.result) {
-						result.innerHTML = '<a href="' + obj.url + '">' + obj.url + '</br>';
-					}
-					else {
-						result.innerHTML = 'The url ' + magneturl + ' is vailed! ';
-					}
-				});// get  
-			});// click
-		});// ready
-</script>
-<div id="footer">
-	<div id="copyright"><p>Copyright &copy; <a href="https://github.com/messycode" target="_blank">github</a>, All Rights Reserved,Host by <a href="https://www.openshift.com" target="_blank">openshift</a>,Design by <a href="http://www.ixxoo.me" target="_blank">likebeta</a></div>
-	<div style="clear:both"></p></div>
+<div id="body">
+<div class="container">
+	<div id="container">
+		<div class="row">
+			<div class="span8 offset2">
+				<div class="tabbable">
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#torrent2magnet" data-toggle="tab">种子转磁链</a></li>
+						<li><a href="#magnet2torrent" data-toggle="tab">磁链转种子</a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane active" id="torrent2magnet">
+							<form>
+								<div id="queue"></div>
+								<input id="file_upload" name="file_upload" type="file" multiple="false" />
+							</form>
+							<div class="info"></div>
+						</div>
+						<div class="tab-pane" id="magnet2torrent">
+							<form class="form-search">
+								<input type="text" id="magnet" name="magnet" class="span6" placeholder="type magnet link here" /> 
+								<input type="button" class="btn btn-primary" id="submit" name="submit" value="submit" />
+							</form>
+							<div  class="info"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+</div>
+<?php include('footer.php');?>
+<script type="text/javascript">
+<?php $timestamp = time();?>
+$(function() {
+	$('#file_upload').uploadify({
+		'formData'  : {
+		'timestamp' : '<?php echo $timestamp;?>',
+		'token'     : '<?php echo md5('unique_salt' . $timestamp);?>'
+		},
+		'multi'    : false,
+		'swf'      : 'uploadify/uploadify.swf',
+		'uploader' : 'torrent2magnet.php',
+		'onUploadSuccess' : function(file, data, response) {
+			var result = $('#torrent2magnet .info');
+			var strhtml = 'The file ' + file.name + ' is vailed! ';
+			if (response)
+			{
+				var obj = eval ("(" + data + ")");
+				if (obj.result)
+				{
+					strhtml = '<a href="' + obj.url + '">' + obj.url + '</br>';
+				}
+			}
+			result.html('<div class="alert"><button type="button" class="close" data-dismiss="alert">×</button>' + strhtml + '</div>');
+		}
+	});
+});
+
+$(document).ready(function(){
+	$("#submit").click(function(){
+		var magneturl = $("#magnet")[0].value;
+		$.get("magnet2torrent.php", { magnet: encodeURIComponent(magneturl) },function(data){
+			var result = $('#magnet2torrent .info');
+			var obj = eval ("(" + data + ")");
+			var strhtml = 'The url ' + magneturl + ' is vailed! ';
+			if (obj.result) {
+				strhtml = '<a href="' + obj.url + '">' + obj.url + '</br>';
+			}
+			result.html('<div class="alert"><button type="button" class="close" data-dismiss="alert">×</button>' + strhtml + '</div>');
+		});// get  
+	});// click
+});// ready
+</script>
 </body>
 </html>
