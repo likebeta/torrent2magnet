@@ -1,5 +1,4 @@
 <?php
-// begin
 $verifyToken = md5('unique_salt' . $_POST['timestamp']);
 if (!empty($_FILES) && $_POST['token'] == $verifyToken) {
 	$tempFile = $_FILES['Filedata']['tmp_name'];
@@ -22,7 +21,6 @@ if (!empty($_FILES) && $_POST['token'] == $verifyToken) {
 		failed();
 	}
 }
-// end	
 	
 function success($info_hash)
 {
