@@ -6,11 +6,11 @@
 	<meta name="description" content="Torrent to Magnet online converter">
 	<meta name="author" content="likebeta">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<script src="//cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
-	<script src="//cdn.staticfile.org/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
-	<script src="//cdn.staticfile.org/html5shiv/3.6.2/html5shiv.min.js"></script>
-	<link href="//cdn.staticfile.org/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-	<link href="//cdn.staticfile.org/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen" />
+	<script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+	<script src="//cdn.bootcss.com/bootstrap/2.3.1/js/bootstrap.min.js"></script>
+	<script src="//cdn.bootcss.com/html5shiv/3.6.2/html5shiv.min.js"></script>
+	<link href="//cdn.bootcss.com/bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+	<link href="//cdn.bootcss.com/bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen" />
 	<link href="base.css" rel="stylesheet" media="screen" />
 	<script src="uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
 	<link href="uploadify/uploadify.css" rel="stylesheet" type="text/css" />
