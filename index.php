@@ -12,8 +12,8 @@
 	<link href="//cdn.bootcss.com/bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 	<link href="//cdn.bootcss.com/bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen" />
 	<link href="base.css" rel="stylesheet" media="screen" />
-	<script src="uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
-	<link href="uploadify/uploadify.css" rel="stylesheet" type="text/css" />
+	<script src="uploadify/jquery.uploadifive.min.js" type="text/javascript"></script>
+	<link href="uploadify/uploadifive.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <?php include('header.php');?>
@@ -31,8 +31,8 @@
 					<div class="tab-content">
 						<div class="tab-pane active" id="torrent2magnet">
 							<form>
-								<div id="queue"></div>
 								<input id="file_upload" name="file_upload" type="file" multiple="false" />
+								<div id="queue"></div>
 							</form>
 							<div class="info"></div>
 						</div>
@@ -54,24 +54,20 @@
 <script type="text/javascript">
 <?php $timestamp = time();?>
 $(function() {
-	$('#file_upload').uploadify({
-		'formData'  : {
-		'timestamp' : '<?php echo $timestamp;?>',
-		'token'     : '<?php echo md5('unique_salt' . $timestamp);?>'
+	$('#file_upload').uploadifive({
+		'formData'         : {
+			'timestamp' : '<?php echo $timestamp;?>',
+			'token'     : '<?php echo md5('unique_salt' . $timestamp);?>'
 		},
-		'multi'    : false,
-		'swf'      : 'uploadify/uploadify.swf',
-		'uploader' : 'torrent2magnet.php',
-		'onUploadSuccess' : function(file, data, response) {
+		'queueID'          : 'queue',
+		'uploadScript'     : 'torrent2magnet.php',
+		'onUploadComplete' : function(file, data, response) {
 			var result = $('#torrent2magnet .info');
 			var strhtml = 'The file ' + file.name + ' is vailed! ';
-			if (response)
+			var obj = eval ("(" + data + ")");
+			if (obj.result)
 			{
-				var obj = eval ("(" + data + ")");
-				if (obj.result)
-				{
-					strhtml = '<a href="' + obj.url + '">' + obj.url + '</br>';
-				}
+				strhtml = '<a href="' + obj.url + '">' + obj.url + '</br>';
 			}
 			result.html('<div class="alert"><button type="button" class="close" data-dismiss="alert">×</button>' + strhtml + '</div>');
 		}
@@ -89,9 +85,9 @@ $(document).ready(function(){
 				strhtml = '<a href="' + obj.url + '">' + obj.url + '</br>';
 			}
 			result.html('<div class="alert"><button type="button" class="close" data-dismiss="alert">×</button>' + strhtml + '</div>');
-		});// get  
-	});// click
-});// ready
+		});
+	});
+});
 </script>
 </body>
 </html>
