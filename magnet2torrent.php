@@ -58,9 +58,7 @@ else{
 function toTorrent(&$hashEncode)
 {
 	$hashEncode = strtoupper($hashEncode);
-	$hashHead = substr($hashEncode, 0, 2);
-	$hashTail = substr($hashEncode, -2);
-	$forTorrent = 'http://bt.box.n0808.com/'.$hashHead.'/'.$hashTail.'/'.$hashEncode.'.torrent'; 
+	$forTorrent = 'https://itorrents.org/torrent/'.$hashEncode.'.torrent'; 
 	return $forTorrent;
 }
 
