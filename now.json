@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "builds": [
+        { "src": "*.php", "use": "@now/php" },
+        { "src": "uploadify/*", "use": "@now/static" },
+        { "src": "*.css", "use": "@now/static" },
+        { "src": "*.ico", "use": "@now/static" }
+    ],
+    "regions": ["hnd1", "sin1"]
+  }
