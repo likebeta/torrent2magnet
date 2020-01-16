@@ -4,13 +4,12 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title>BT种子转磁性链接 | 磁性链接转BT种子</title>
 	<meta name="description" content="Torrent to Magnet online converter">
-	<meta name="author" content="likebeta">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
-	<script src="//cdn.bootcss.com/bootstrap/2.3.1/js/bootstrap.min.js"></script>
-	<script src="//cdn.bootcss.com/html5shiv/3.6.2/html5shiv.min.js"></script>
-	<link href="//cdn.bootcss.com/bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-	<link href="//cdn.bootcss.com/bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen" />
+	<script src="//cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+	<script src="//cdn.jsdelivr.net/gh/cdnjs/cdnjs/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+	<link href="//cdn.jsdelivr.net/gh/cdnjs/cdnjs/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+	<link href="//cdn.jsdelivr.net/gh/cdnjs/cdnjs/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen" />
 	<link href="base.css" rel="stylesheet" media="screen" />
 	<script src="uploadify/jquery.uploadifive.min.js" type="text/javascript"></script>
 	<link href="uploadify/uploadifive.css" rel="stylesheet" type="text/css" />

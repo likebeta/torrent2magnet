@@ -6,5 +6,7 @@
         { "src": "*.css", "use": "@now/static" },
         { "src": "*.ico", "use": "@now/static" }
     ],
-    "regions": ["hnd1", "sin1"]
+    "scope": "messycode",
+    "alias": ["torrent2magnet.ixxoo.me"],
+    "regions": ["all"]
   }
