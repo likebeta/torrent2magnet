@@ -1,12 +1,15 @@
 {
     "version": 2,
     "builds": [
-        { "src": "*.php", "use": "@now/php" },
-        { "src": "uploadify/*", "use": "@now/static" },
-        { "src": "*.css", "use": "@now/static" },
+        { "src": "*.php", "use": "now-php" },
+        { "src": "asset/*", "use": "@now/static" },
+        { "src": "asset/uploadify/*", "use": "@now/static" },
+        { "src": "*.html", "use": "@now/static" },
         { "src": "*.ico", "use": "@now/static" }
     ],
-    "scope": "messycode",
-    "alias": ["torrent2magnet.ixxoo.me"],
-    "regions": ["all"]
+    "routes": [
+        { "handle": "filesystem" },
+        { "src": "/.*", "status": 404, "dest": "/404.html" }
+    ],
+    "alias": ["torrent2magnet.ixxoo.me", "torrent2magnet.messycode.now.sh"]
   }

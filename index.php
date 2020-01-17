@@ -10,9 +10,9 @@
 	<script src="//cdn.jsdelivr.net/gh/cdnjs/cdnjs/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 	<link href="//cdn.jsdelivr.net/gh/cdnjs/cdnjs/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 	<link href="//cdn.jsdelivr.net/gh/cdnjs/cdnjs/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen" />
-	<link href="base.css" rel="stylesheet" media="screen" />
-	<script src="uploadify/jquery.uploadifive.min.js" type="text/javascript"></script>
-	<link href="uploadify/uploadifive.css" rel="stylesheet" type="text/css" />
+	<link href="asset/base.css" rel="stylesheet" media="screen" />
+	<script src="asset/uploadify/jquery.uploadifive.min.js" type="text/javascript"></script>
+	<link href="asset/uploadify/uploadifive.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <?php include('header.php');?>
@@ -67,7 +67,7 @@ $(function() {
 			var obj = eval ("(" + data + ")");
 			if (obj.result)
 			{
-				strhtml = '<a href="' + obj.url + '">' + obj.url + '</br>';
+				strhtml = '<a href="' + obj.url + '" target="_blank">' + obj.url;
 			}
 			result.html('<div class="alert"><button type="button" class="close" data-dismiss="alert">×</button>' + strhtml + '</div>');
 		}
@@ -82,7 +82,7 @@ $(document).ready(function(){
 			var obj = eval ("(" + data + ")");
 			var strhtml = 'The url ' + magneturl + ' is vailed! ';
 			if (obj.result) {
-				strhtml = '<a href="' + obj.url + '">' + obj.url + '</br>';
+				strhtml = '<a href="' + obj.url + '">' + obj.url;
 			}
 			result.html('<div class="alert"><button type="button" class="close" data-dismiss="alert">×</button>' + strhtml + '</div>');
 		});
