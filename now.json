@@ -1,5 +1,7 @@
 {
     "version": 2,
+    "name": "torrent2magnet",
+    "scope": "messycode",
     "builds": [
         { "src": "*.php", "use": "now-php" },
         { "src": "asset/*", "use": "@now/static" },
@@ -11,5 +13,5 @@
         { "handle": "filesystem" },
         { "src": "/.*", "status": 404, "dest": "/404.html" }
     ],
-    "alias": ["torrent2magnet.ixxoo.me", "torrent2magnet.messycode.now.sh"]
+    "alias": ["torrent2magnet.ixxoo.me"]
   }
