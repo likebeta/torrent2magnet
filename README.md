@@ -1,3 +1,3 @@
-convert torrent to magnet
+Torrent ⇌ Magnet
 
-demo: [http://torrent2magnet.ixxoo.me](https://torrent2magnet.ixxoo.me)
+Demo: [https://torrent2magnet.ixxoo.me](https://torrent2magnet.ixxoo.me)
