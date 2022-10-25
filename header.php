@@ -4,7 +4,7 @@
 			<a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar">
 				<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
 			</a>
-			<a href="https://app.ixxoo.me" class="brand">Hello World</a>
+			<a href="https://app.9527.eu.org" class="brand">Hello World</a>
 			<div class="nav-collapse collapse navbar-responsive-collapse">
 				<ul class="nav pull-right">
 					<li><a href="#">关于</a></li>

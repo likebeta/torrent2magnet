@@ -3,7 +3,7 @@
     "name": "torrent2magnet",
     "scope": "messycode",
     "builds": [
-        { "src": "*.php", "use": "now-php" },
+        { "src": "*.php", "use": "vercel-php@0.5.2" },
         { "src": "asset/*", "use": "@now/static" },
         { "src": "asset/uploadify/*", "use": "@now/static" },
         { "src": "*.html", "use": "@now/static" },
@@ -13,5 +13,5 @@
         { "handle": "filesystem" },
         { "src": "/.*", "status": 404, "dest": "/404.html" }
     ],
-    "alias": ["torrent2magnet.ixxoo.me"]
+    "alias": ["torrent2magnet.9527.eu.org"]
   }
