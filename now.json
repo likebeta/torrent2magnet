@@ -3,7 +3,7 @@
     "name": "torrent2magnet",
     "scope": "messycode",
     "builds": [
-        { "src": "*.php", "use": "vercel-php@0.5.2" },
+        { "src": "*.php", "use": "vercel-php@0.7.3" },
         { "src": "asset/*", "use": "@now/static" },
         { "src": "asset/uploadify/*", "use": "@now/static" },
         { "src": "*.html", "use": "@now/static" },
